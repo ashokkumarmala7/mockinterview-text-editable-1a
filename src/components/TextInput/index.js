@@ -14,6 +14,9 @@ class TextInput extends Component {
   state = {
     userInput: '',
     isButtonClicked: false,
+
+    userInputs: '',
+    isButtonPressed: false,
   }
 
   onChangeInput = event => {
@@ -30,9 +33,24 @@ class TextInput extends Component {
     }))
   }
 
+  onChangeInputs = event => {
+    this.setState({userInputs: event.target.value})
+  }
+
+  onChangeSaves = event => {
+    event.preventDefault()
+  }
+
+  onClickButtons = () => {
+    this.setState(prevState => ({
+      isButtonPressed: !prevState.isButtonPressed,
+    }))
+  }
+
   render() {
-    const {userInput, isButtonClicked} = this.state
+    const {userInput, isButtonClicked, userInputs, isButtonPressed} = this.state
     const buttonText = isButtonClicked ? 'Edit' : 'Save'
+    const buttonFont = isButtonPressed ? 'Edit' : 'Save'
     return (
       <AppContainer>
         <CardContainer>
@@ -50,6 +68,21 @@ class TextInput extends Component {
             )}
             <Button type="button" onClick={this.onClickButton}>
               {buttonText}
+            </Button>
+          </InputContainer>
+
+          <InputContainer>
+            {isButtonPressed ? (
+              <Paragraph>{userInputs}</Paragraph>
+            ) : (
+              <InputBu
+                type="text"
+                onChange={this.onChangeInputs}
+                value={userInputs}
+              />
+            )}
+            <Button type="button" onClick={this.onClickButtons}>
+              {buttonFont}
             </Button>
           </InputContainer>
         </CardContainer>

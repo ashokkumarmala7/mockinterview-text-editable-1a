@@ -26,6 +26,7 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 20px;
 `
 export const Paragraph = styled.p`
   font-size: 15px;
@@ -33,11 +34,13 @@ export const Paragraph = styled.p`
   padding-right: 10px;
 `
 export const InputBu = styled.input`
-  height: 10px;
+  height: 30px;
   width: 250px;
   outline: none;
   margin-right: 20px;
   padding: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
 `
 export const Button = styled.button`
   height: 30px;
