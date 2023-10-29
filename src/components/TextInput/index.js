@@ -85,6 +85,7 @@ class TextInput extends Component {
               {buttonFont}
             </Button>
           </InputContainer>
+          <Heading>I noticed is nothing is difficult</Heading>
         </CardContainer>
       </AppContainer>
     )
